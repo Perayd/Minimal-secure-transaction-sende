@@ -1,0 +1,7 @@
+// pseudo-code
+const token = new ethers.Contract(tokenAddress, erc20Abi, wallet);
+const current = await token.allowance(wallet.address, spender);
+if (current.gt(0)) {
+  await token.approve(spender, 0); // wait for conf
+}
+await token.approve(spender, desiredAmount);
